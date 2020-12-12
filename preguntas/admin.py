@@ -1,9 +1,11 @@
 from django.contrib import admin
-from .models import Pregunta, Respuesta
+from .models import *
 from .views import json
 
 # Register your models here.
-
+def casting(extra,request,queryset):
+    p = "H"
+    return ('..')
 
 class RespuestaInline(admin.TabularInline):
     list_display = ['respuesta']
@@ -12,7 +14,10 @@ class RespuestaInline(admin.TabularInline):
 class PreguntaAdmin(admin.ModelAdmin):
     list_display = ['pregunta']
     inlines = [RespuestaInline]
-    actions = [json]
+    actions = [json,casting]
+
+
+
 
 class RespuestaAdmin(admin.ModelAdmin):
 
@@ -23,5 +28,7 @@ class RespuestaAdmin(admin.ModelAdmin):
         #return {}
       pass
 
+class TemaAdmin(admin.ModelAdmin):
+    pass
 admin.site.register(Pregunta, PreguntaAdmin)
 admin.site.register(Respuesta, RespuestaAdmin)

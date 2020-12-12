@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+    <body>
+        <div>
+            {{ p  }}
+        </div>
+        <form action= "{% url 'prueba' %}" method="post">
+            {% csrf_token %}
+            <label for="salida" >
+            <input type="text" name="salida">
+        <button type="submit" value="envio" > envio de datos</button>
+        </form>
+    </body>
+</html>
