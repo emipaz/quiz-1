@@ -11,24 +11,27 @@ class Temas(models.Model):
         return self.titulo
 
 class Pregunta(models.Model):
-    pregunta = models.TextField(max_length=500)
-    archivo = models.FileField(upload_to='./preguntas_respuestas/', storage=FileSystemStorage(settings.STATIC_ROOT),null=True,blank=True)
+    pregunta = models.TextField(max_length = 500)
+    archivo  = models.FileField(upload_to  = './preguntas_respuestas/',
+                                storage    = FileSystemStorage(settings.STATIC_ROOT),
+                                null       = True,
+                                blank      = True)
 
     def __str__(self):
         return self.pregunta
 
 
 class TemasPreguntas(models.Model):
-    idtema = models.ForeignKey(Temas,on_delete=models.SET_NULL,null=True, blank=True)
-    idpregunta = models.ForeignKey(Pregunta,on_delete=models.SET_NULL,null=True, blank=True)
+    idtema     = models.ForeignKey(Temas,   on_delete = models.SET_NULL, null = True, blank = True)
+    idpregunta = models.ForeignKey(Pregunta,on_delete = models.SET_NULL, null = True, blank = True)
 
     # def __str__(self):
     #     return self.pregunta
 
 class Respuesta(models.Model):
-    pregunta = models.ForeignKey(Pregunta, on_delete=models.CASCADE, related_name='respuestas')
-    respuesta = models.CharField(max_length=200)
-    correctas = models.IntegerField(blank=True,null=True)
+    pregunta  = models.ForeignKey(Pregunta, on_delete = models.CASCADE, related_name = 'respuestas')
+    respuesta = models.CharField(max_length = 200)
+    correctas = models.IntegerField( blank = True, null = True)
 
 
     def __str__(self):

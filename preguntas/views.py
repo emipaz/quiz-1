@@ -21,10 +21,15 @@ class PruebaView(View):
     def get(self,request,*args,**kwargs):
 
         p=request
-        context={"p":"hola"}
+        context={"p":""}
         return  render(p,self.template_name,context)
 
     def post (self,request,*args,**kwargs):
+        import json
         p = request
+        #print(p.__dict__.keys(),sep="\n")
+        #print(p.read().decode())
+        res = dict(p.POST)
+        print(res)
         context = {"p": "Chau"}
         return render(p, self.template_name, context)
