@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+    <body>
+        <div>
+            {{ p  }}
+        </div>
+        <form action= "{% url 'prueba' %}" method="post">
+            <!-- {% csrf_token %} -->
+            <!-- <label for="salida" > -->
+            Pregunta : <input type = "text" name = "pregunta", width = "1500"><br>
+            <input type = "text" name = "respuesta">
+            <label>Correcta</label>
+            <input type="radio"  name="correcta1" value = 1>
+            <label>Falsa</label>
+            <input type="radio"  name="correcta1" value = 0>
+            <br>
+            <input type = "text" name = "respuesta">
+            <label>Correcta</label>
+            <input type="radio"  name="correcta2" value = 1>
+            <label>Falsa</label>
+            <input type="radio"  name="correcta2" value = 0>
+            <br>
+            <input type = "text" name = "respuesta">
+            <label>Correcta</label>
+            <input type="radio"  name="correcta3" value = 1>
+            <label>Falsa</label>
+            <input type="radio"  name="correcta3" value = 0>
+            <br>
+            <input type = "text" name = "respuesta">
+            <label>Correcta</label>
+            <input type="radio"  name="correcta4" value = 1>
+            <label>Falsa</label>
+            <input type="radio"  name="correcta4" value = 0>
+            <br>
+           <button type = "submit"  > envio de datos</button>
+        </form>
+    </body>
+</html>
